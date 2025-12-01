@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const LoginPage: React.FC = () => {
   const [username, setUsername] = useState("");
@@ -24,10 +24,12 @@ const LoginPage: React.FC = () => {
     <div
       style={{
         display: "flex",
-        height: "100vh",
+        height: "50vh",
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: "#f2f2f2",
+        backgroundColor: "#d5e6e1ff",
+        marginTop: "50px",
+        borderRadius: "50px",
       }}
     >
       <form
@@ -41,7 +43,7 @@ const LoginPage: React.FC = () => {
           textAlign: "center",
         }}
       >
-        <h2>Login</h2>
+        <h2>Login </h2>
         <input
           type="text"
           placeholder="Username"
@@ -84,6 +86,20 @@ const LoginPage: React.FC = () => {
         >
           Masuk
         </button>
+        <div style={{ marginTop: "10px" }}>
+          Belum punya akun? Daftar{" "}
+          <Link
+            style={{
+              // textDecoration: "none",
+              fontSize: "15px",
+              cursor: "pointer",
+              fontFamily: "serif",
+            }}
+            to="/signup"
+          >
+            disini
+          </Link>{" "}
+        </div>
       </form>
     </div>
   );

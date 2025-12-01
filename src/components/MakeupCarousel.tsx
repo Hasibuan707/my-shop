@@ -48,13 +48,23 @@ const MakeupCarousel: React.FC = () => {
   return (
     <div
       style={{
-        width: "100%",
+        width: "80%",
         maxWidth: 600,
         margin: "auto",
         textAlign: "center",
         position: "relative",
       }}
     >
+      {" "}
+      <h1
+        style={{
+          fontSize: slidesToShow === 3 ? "18px" : "30px",
+          color: "teal",
+          justifyItems: "start",
+        }}
+      >
+        New Brand
+      </h1>
       <button
         onClick={prevSlide}
         style={{
@@ -68,11 +78,11 @@ const MakeupCarousel: React.FC = () => {
           border: "none",
           padding: "5px 10px",
           cursor: "pointer",
+          backgroundColor: "transparent",
         }}
       >
         ❮
       </button>
-
       <div
         style={{
           display: "flex",
@@ -87,24 +97,26 @@ const MakeupCarousel: React.FC = () => {
               src={product.thumbnail}
               alt={product.title}
               style={{
-                width: slidesToShow === 3 ? "100px" : "50%",
+                width: slidesToShow === 1 ? "100%" : "80%",
                 height: "120px",
-                objectFit: "cover",
+                objectFit: "contain",
                 borderRadius: 8,
+                fontSize: "15px",
               }}
             />
-            {slidesToShow === 1 && (
+            {slidesToShow === 3 && (
               <>
-                <h3 style={{ marginTop: 10 }}>{product.title}</h3>
+                <h3 style={{ marginTop: 20, fontSize: "15px" }}>
+                  {product.title}
+                </h3>
                 <p style={{ fontWeight: "bold" }}>
-                  Rp {product.price.toLocaleString("id-ID")}
+                  $ {product.price.toLocaleString("id-ID")}
                 </p>
               </>
             )}
           </div>
         ))}
       </div>
-
       <button
         onClick={nextSlide}
         style={{
@@ -118,11 +130,11 @@ const MakeupCarousel: React.FC = () => {
           border: "none",
           padding: "5px 10px",
           cursor: "pointer",
+          backgroundColor: "transparent",
         }}
       >
         ❯
       </button>
-
       <div style={{ marginTop: 10 }}>
         {products.map((_, index) => (
           <span
